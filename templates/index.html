@@ -12,18 +12,19 @@
         AI Image Editor Pro
     </title>
 
-    <!-- Bootstrap -->
+    <!-- Favicon -->
+    <link rel="icon"
+          href="{{ url_for('static', filename='favicon.ico') }}">
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Google Font -->
-
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
 
@@ -35,7 +36,6 @@
           rel="stylesheet">
 
     <!-- Custom CSS -->
-
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}?v=5">
 
@@ -53,9 +53,7 @@
 
             <a class="navbar-brand fw-bold"
                href="/">
-
                 AI Image Editor Pro
-
             </a>
 
             <button class="navbar-toggler"
@@ -73,47 +71,31 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-
                         <a class="nav-link active"
                            href="/">
-
                             Home
-
                         </a>
-
                     </li>
 
                     <li class="nav-item">
-
                         <a class="nav-link"
                            href="/about">
-
                             About
-
                         </a>
-
                     </li>
 
                     <li class="nav-item">
-
                         <a class="nav-link"
                            href="/how">
-
                             How To Use
-
                         </a>
-
                     </li>
 
                     <li class="nav-item">
-
                         <a class="nav-link"
                            href="/contact">
-
                             Contact
-
                         </a>
-
                     </li>
 
                 </ul>
@@ -133,15 +115,11 @@
         <div class="container text-center">
 
             <h1 class="hero-title">
-
                 AI Powered Image Editor
-
             </h1>
 
             <p class="hero-subtitle">
-
                 Edit images professionally using AI filters & tools
-
             </p>
 
         </div>
@@ -192,9 +170,7 @@
                     <div class="card-body p-5">
 
                         <h2 class="text-center fw-bold mb-5">
-
                             Upload Your Image
-
                         </h2>
 
                         <form action="/edit"
@@ -206,21 +182,15 @@
                             <div class="upload-box">
 
                                 <div class="upload-icon">
-
                                     <i class="bi bi-cloud-arrow-up-fill"></i>
-
                                 </div>
 
                                 <h2 class="upload-title">
-
                                     Drag & Drop Your Image
-
                                 </h2>
 
                                 <p class="upload-subtitle">
-
                                     Upload PNG, JPG, JPEG or WEBP Images
-
                                 </p>
 
                                 <input type="file"
@@ -232,9 +202,7 @@
 
                                 <label for="formFile"
                                        class="upload-btn">
-
                                     Browse Image
-
                                 </label>
 
                             </div>
@@ -246,7 +214,8 @@
                                 <img id="preview"
                                      src=""
                                      class="preview-image"
-                                     style="display:none;">
+                                     style="display:none;"
+                                     alt="Preview">
 
                             </div>
 
@@ -255,9 +224,7 @@
                             <div class="mt-5">
 
                                 <label class="form-label fw-semibold mb-3">
-
                                     Background Image (Optional)
-
                                 </label>
 
                                 <input type="file"
@@ -275,7 +242,8 @@
                                 <img id="bgpreview"
                                      src=""
                                      class="preview-image"
-                                     style="display:none;">
+                                     style="display:none;"
+                                     alt="Background Preview">
 
                             </div>
 
@@ -284,70 +252,27 @@
                             <div class="mt-5">
 
                                 <label class="form-label fw-semibold mb-3">
-
                                     Select Operation
-
                                 </label>
 
                                 <select name="operation"
                                         class="form-select"
                                         required>
 
-                                    <option value="">
-                                        Choose Operation
-                                    </option>
-
-                                    <option value="cgray">
-                                        GrayScale
-                                    </option>
-
-                                    <option value="brightness">
-                                        Brightness & Contrast
-                                    </option>
-
-                                    <option value="blur">
-                                        Blur
-                                    </option>
-
-                                    <option value="edge">
-                                        Edge Detection
-                                    </option>
-
-                                    <option value="rotate">
-                                        Rotate
-                                    </option>
-
-                                    <option value="removebg">
-                                        Remove Background
-                                    </option>
-
-                                    <option value="replacebg">
-                                        Replace Background AI
-                                    </option>
-
-                                    <option value="cartoon">
-                                        Cartoon Filter
-                                    </option>
-
-                                    <option value="sketch">
-                                        Pencil Sketch
-                                    </option>
-
-                                    <option value="hdr">
-                                        HDR Effect
-                                    </option>
-
-                                    <option value="cpng">
-                                        Convert PNG
-                                    </option>
-
-                                    <option value="cjpg">
-                                        Convert JPG
-                                    </option>
-
-                                    <option value="cwebp">
-                                        Convert WEBP
-                                    </option>
+                                    <option value="">Choose Operation</option>
+                                    <option value="cgray">GrayScale</option>
+                                    <option value="brightness">Brightness & Contrast</option>
+                                    <option value="blur">Blur</option>
+                                    <option value="edge">Edge Detection</option>
+                                    <option value="rotate">Rotate</option>
+                                    <option value="removebg">Remove Background</option>
+                                    <option value="replacebg">Replace Background AI</option>
+                                    <option value="cartoon">Cartoon Filter</option>
+                                    <option value="sketch">Pencil Sketch</option>
+                                    <option value="hdr">HDR Effect</option>
+                                    <option value="cpng">Convert PNG</option>
+                                    <option value="cjpg">Convert JPG</option>
+                                    <option value="cwebp">Convert WEBP</option>
 
                                 </select>
 
@@ -358,9 +283,7 @@
                             <div class="mt-5">
 
                                 <label class="form-label fw-semibold">
-
                                     Brightness
-
                                 </label>
 
                                 <input type="range"
@@ -377,9 +300,7 @@
                             <div class="mt-4">
 
                                 <label class="form-label fw-semibold">
-
                                     Contrast
-
                                 </label>
 
                                 <input type="range"
@@ -419,9 +340,7 @@
                             <!-- Submit -->
 
                             <button class="btn btn-dark btn-lg w-100 mt-4">
-
                                 Process Image
-
                             </button>
 
                         </form>
@@ -447,37 +366,29 @@
         <div class="card shadow-lg main-card p-4">
 
             <h2 class="text-center fw-bold mb-5">
-
                 Before vs After
-
             </h2>
 
             <div class="row g-4">
 
                 <!-- Original -->
-
                 <div class="col-lg-6">
 
                     <h4 class="text-center mb-3">
-
                         Original Image
-
                     </h4>
 
                     <img src="{{ original_image }}"
-     class="comparison-img"
-     alt="Original Image">
+                         class="comparison-img"
+                         alt="Original Image">
 
                 </div>
 
                 <!-- Processed -->
-
                 <div class="col-lg-6">
 
                     <h4 class="text-center mb-3">
-
                         Processed Image
-
                     </h4>
 
                     <img src="/{{ processed_image }}"
@@ -517,15 +428,11 @@
             <div class="text-center mb-5">
 
                 <h2 class="fw-bold">
-
                     Powerful AI Features
-
                 </h2>
 
                 <p class="text-muted">
-
                     Professional image editing powered by AI
-
                 </p>
 
             </div>
@@ -536,22 +443,12 @@
 
                     <div class="feature-card">
 
-                        <div class="feature-icon">
+                        <div class="feature-icon">🎨</div>
 
-                            🎨
-
-                        </div>
-
-                        <h4>
-
-                            AI Filters
-
-                        </h4>
+                        <h4>AI Filters</h4>
 
                         <p>
-
                             Cartoon, Sketch, HDR and artistic filters.
-
                         </p>
 
                     </div>
@@ -562,22 +459,12 @@
 
                     <div class="feature-card">
 
-                        <div class="feature-icon">
+                        <div class="feature-icon">✂️</div>
 
-                            ✂️
-
-                        </div>
-
-                        <h4>
-
-                            Background Removal
-
-                        </h4>
+                        <h4>Background Removal</h4>
 
                         <p>
-
                             Remove or replace backgrounds instantly using AI.
-
                         </p>
 
                     </div>
@@ -588,22 +475,12 @@
 
                     <div class="feature-card">
 
-                        <div class="feature-icon">
+                        <div class="feature-icon">⚡</div>
 
-                            ⚡
-
-                        </div>
-
-                        <h4>
-
-                            Fast Processing
-
-                        </h4>
+                        <h4>Fast Processing</h4>
 
                         <p>
-
                             Professional image editing with fast performance.
-
                         </p>
 
                     </div>
@@ -625,9 +502,7 @@
         <div class="container text-center">
 
             <p class="mb-0">
-
                 © 2026 AI Image Editor Pro
-
             </p>
 
         </div>
@@ -639,75 +514,38 @@
     <!-- ========================= -->
 
     <script>
-
         // Main Preview
+        const fileInput = document.getElementById("formFile");
+        const preview = document.getElementById("preview");
 
-        const fileInput =
-            document.getElementById(
-                "formFile"
-            );
+        if (fileInput) {
+            fileInput.addEventListener("change", function (event) {
+                const file = event.target.files[0];
 
-        const preview =
-            document.getElementById(
-                "preview"
-            );
-
-        fileInput.addEventListener(
-            "change",
-            function(event){
-
-                const file =
-                    event.target.files[0];
-
-                if(file){
-
-                    preview.src =
-                        URL.createObjectURL(file);
-
-                    preview.style.display =
-                        "block";
-
+                if (file) {
+                    preview.src = URL.createObjectURL(file);
+                    preview.style.display = "block";
                 }
-
-            }
-        );
+            });
+        }
 
         // Background Preview
+        const bgInput = document.getElementById("bgPreviewInput");
+        const bgPreview = document.getElementById("bgpreview");
 
-        const bgInput =
-            document.getElementById(
-                "bgPreviewInput"
-            );
+        if (bgInput) {
+            bgInput.addEventListener("change", function (event) {
+                const file = event.target.files[0];
 
-        const bgPreview =
-            document.getElementById(
-                "bgpreview"
-            );
-
-        bgInput.addEventListener(
-            "change",
-            function(event){
-
-                const file =
-                    event.target.files[0];
-
-                if(file){
-
-                    bgPreview.src =
-                        URL.createObjectURL(file);
-
-                    bgPreview.style.display =
-                        "block";
-
+                if (file) {
+                    bgPreview.src = URL.createObjectURL(file);
+                    bgPreview.style.display = "block";
                 }
-
-            }
-        );
-
+            });
+        }
     </script>
 
     <!-- Bootstrap -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
