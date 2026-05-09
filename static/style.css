@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f4f7fb;
+
+    color:#111827;
+
+    overflow-x:hidden;
+}
+
+/* ========================= */
+/* Navbar */
+/* ========================= */
+
+.navbar{
+
+    padding:18px 0;
+}
+
+.navbar-brand{
+
+    font-size:1.5rem;
+
+    letter-spacing:0.5px;
+}
+
+/* ========================= */
+/* Hero Section */
+/* ========================= */
+
+.hero-section{
+
+    background:linear-gradient(
+        135deg,
+        #111827,
+        #1f2937
+    );
+
+    padding:100px 20px;
+
+    color:white;
+}
+
+.hero-title{
+
+    font-size:3.5rem;
+
+    font-weight:700;
+}
+
+.hero-subtitle{
+
+    font-size:1.2rem;
+
+    opacity:0.8;
+
+    margin-top:15px;
+}
+
+/* ========================= */
+/* Main Card */
+/* ========================= */
+
+.main-card{
+
+    border:none;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:white;
+}
+
+/* ========================= */
+/* Upload Box */
+/* ========================= */
+
+.upload-box{
+
+    border:3px dashed #d1d5db;
+
+    border-radius:30px;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    background:#f9fafb;
+
+    transition:0.3s;
+}
+
+.upload-box:hover{
+
+    border-color:#2563eb;
+
+    background:#eff6ff;
+
+    transform:translateY(-3px);
+}
+
+/* Upload Icon */
+
+.upload-icon{
+
+    font-size:4rem;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+}
+
+/* Upload Title */
+
+.upload-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#111827;
+}
+
+/* Upload Subtitle */
+
+.upload-subtitle{
+
+    color:#6b7280;
+
+    margin-top:10px;
+
+    margin-bottom:30px;
+}
+
+/* Upload Button */
+
+.upload-btn{
+
+    display:inline-block;
+
+    background:#111827;
+
+    color:white;
+
+    padding:14px 35px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:0.3s;
+
+    text-decoration:none;
+}
+
+.upload-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:translateY(-2px);
+}
+
+/* ========================= */
+/* Inputs */
+/* ========================= */
+
+.form-control,
+.form-select{
+
+    border-radius:16px;
+
+    padding:14px;
+
+    border:1px solid #d1d5db;
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    box-shadow:none;
+
+    border-color:#2563eb;
+}
+
+/* ========================= */
+/* Preview Images */
+/* ========================= */
+
+.preview-image{
+
+    width:100%;
+
+    max-height:350px;
+
+    object-fit:contain;
+
+    border-radius:25px;
+
+    background:white;
+
+    padding:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ========================= */
+/* Comparison Images */
+/* ========================= */
+
+.comparison-img{
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:contain;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ========================= */
+/* Buttons */
+/* ========================= */
+
+.btn-dark{
+
+    background:#111827;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:14px;
+
+    transition:0.3s;
+
+    font-weight:600;
+}
+
+.btn-dark:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-2px);
+}
+
+.btn-success{
+
+    border-radius:16px;
+
+    padding:14px 40px;
+
+    font-weight:600;
+}
+
+/* ========================= */
+/* Slider */
+/* ========================= */
+
+.form-range::-webkit-slider-thumb{
+
+    background:#2563eb;
+}
+
+/* ========================= */
+/* Features */
+/* ========================= */
+
+.features-section{
+
+    padding:80px 0;
+}
+
+.feature-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+    height:100%;
+}
+
+.feature-card:hover{
+
+    transform:translateY(-5px);
+}
+
+.feature-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+}
+
+/* ========================= */
+/* Footer */
+/* ========================= */
+
+footer{
+
+    background:#111827;
+}
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+@media(max-width:768px){
+
+    .hero-title{
+
+        font-size:2.3rem;
+    }
+
+    .comparison-img{
+
+        height:300px;
+    }
+
+    .upload-box{
+
+        padding:40px 20px;
+    }
+
+    .upload-title{
+
+        font-size:1.5rem;
+    }
+
+}

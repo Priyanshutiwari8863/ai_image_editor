@@ -1,99 +1,715 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Image Editor</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        AI Image Editor Pro
+    </title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}?v=5">
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Edit Image</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/how">How to use</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact Us</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        
-      </ul>
-      <div class="d-flex" role="search">
-        <button class="btn btn-outline-success mx-1" type="submit">Login</button>
-        <button class="btn btn-outline-success mx-1" type="submit">Sginup</button>
-      </div>
-    </div>
-  </div>
-</nav>
 
-{% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
+    <!-- ========================= -->
+    <!-- Navbar -->
+    <!-- ========================= -->
 
-  {% for category, message in messages %}
-  
-  <div class="alert alert-Succes alert-dismissible fade show" role="alert">
-    <strong> Success!</strong>{{ message | safe }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
 
-{% endif %}
-{% endwith %}
-  <div class="containe my-3">
-    <h1 class="fs-2 text">Image Editor -edit your app online</h1>
-    <form action="/edit" method="post" enctype="multipart/form-data">
+        <div class="container">
 
-      <div class="mb-3">
-        <label for="formFile" class="form-label">Select an Image to edit</label>
-        <input class="form-control" type="file" name="file" id="formFile">
-      </div>
-      <div class="mb-3">
-        <div class="form-floating">
-          <select name="operation" class="form-select" id="floatingSelect" aria-label="Floating label select example">
-            <option selected>Choose an Operation</option>
-            <option value="cgray">Convert to Grayscale</option>
-            <option value="cpng">Convert to PNG </option>
-            <option value="cwebp">Convert to Webp</option>
-            <option value="cjpg">Convert to Jpg</option>
-          </select>
-          <label for="floatingSelect">Select an editing operation</label>
+            <a class="navbar-brand fw-bold"
+               href="/">
+
+                AI Image Editor Pro
+
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#nav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="nav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active"
+                           href="/">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/about">
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/how">
+
+                            How To Use
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/contact">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
         </div>
-      </div>
-      <button type="submit" class="btn btn-success">Submit</button>
-    </form>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+    </nav>
+
+    <!-- ========================= -->
+    <!-- Hero -->
+    <!-- ========================= -->
+
+    <section class="hero-section">
+
+        <div class="container text-center">
+
+            <h1 class="hero-title">
+
+                AI Powered Image Editor
+
+            </h1>
+
+            <p class="hero-subtitle">
+
+                Edit images professionally using AI filters & tools
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Flash Messages -->
+    <!-- ========================= -->
+
+    <div class="container mt-4">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+
+        {% for category, message in messages %}
+
+        <div class="alert alert-{{ category }} alert-dismissible fade show">
+
+            {{ message }}
+
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert">
+            </button>
+
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+        {% endwith %}
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Upload Section -->
+    <!-- ========================= -->
+
+    <div class="container my-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9">
+
+                <div class="card shadow-lg main-card">
+
+                    <div class="card-body p-5">
+
+                        <h2 class="text-center fw-bold mb-5">
+
+                            Upload Your Image
+
+                        </h2>
+
+                        <form action="/edit"
+                              method="POST"
+                              enctype="multipart/form-data">
+
+                            <!-- Upload Box -->
+
+                            <div class="upload-box">
+
+                                <div class="upload-icon">
+
+                                    <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                                </div>
+
+                                <h2 class="upload-title">
+
+                                    Drag & Drop Your Image
+
+                                </h2>
+
+                                <p class="upload-subtitle">
+
+                                    Upload PNG, JPG, JPEG or WEBP Images
+
+                                </p>
+
+                                <input type="file"
+                                       name="file"
+                                       id="formFile"
+                                       class="d-none"
+                                       accept="image/*"
+                                       required>
+
+                                <label for="formFile"
+                                       class="upload-btn">
+
+                                    Browse Image
+
+                                </label>
+
+                            </div>
+
+                            <!-- Preview -->
+
+                            <div class="text-center mt-4">
+
+                                <img id="preview"
+                                     src=""
+                                     class="preview-image"
+                                     style="display:none;">
+
+                            </div>
+
+                            <!-- Background Upload -->
+
+                            <div class="mt-5">
+
+                                <label class="form-label fw-semibold mb-3">
+
+                                    Background Image (Optional)
+
+                                </label>
+
+                                <input type="file"
+                                       name="bgfile"
+                                       class="form-control"
+                                       id="bgPreviewInput"
+                                       accept="image/*">
+
+                            </div>
+
+                            <!-- Background Preview -->
+
+                            <div class="text-center mt-4">
+
+                                <img id="bgpreview"
+                                     src=""
+                                     class="preview-image"
+                                     style="display:none;">
+
+                            </div>
+
+                            <!-- Operations -->
+
+                            <div class="mt-5">
+
+                                <label class="form-label fw-semibold mb-3">
+
+                                    Select Operation
+
+                                </label>
+
+                                <select name="operation"
+                                        class="form-select"
+                                        required>
+
+                                    <option value="">
+                                        Choose Operation
+                                    </option>
+
+                                    <option value="cgray">
+                                        GrayScale
+                                    </option>
+
+                                    <option value="brightness">
+                                        Brightness & Contrast
+                                    </option>
+
+                                    <option value="blur">
+                                        Blur
+                                    </option>
+
+                                    <option value="edge">
+                                        Edge Detection
+                                    </option>
+
+                                    <option value="rotate">
+                                        Rotate
+                                    </option>
+
+                                    <option value="removebg">
+                                        Remove Background
+                                    </option>
+
+                                    <option value="replacebg">
+                                        Replace Background AI
+                                    </option>
+
+                                    <option value="cartoon">
+                                        Cartoon Filter
+                                    </option>
+
+                                    <option value="sketch">
+                                        Pencil Sketch
+                                    </option>
+
+                                    <option value="hdr">
+                                        HDR Effect
+                                    </option>
+
+                                    <option value="cpng">
+                                        Convert PNG
+                                    </option>
+
+                                    <option value="cjpg">
+                                        Convert JPG
+                                    </option>
+
+                                    <option value="cwebp">
+                                        Convert WEBP
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- Brightness -->
+
+                            <div class="mt-5">
+
+                                <label class="form-label fw-semibold">
+
+                                    Brightness
+
+                                </label>
+
+                                <input type="range"
+                                       class="form-range"
+                                       min="0"
+                                       max="100"
+                                       value="50"
+                                       name="brightness">
+
+                            </div>
+
+                            <!-- Contrast -->
+
+                            <div class="mt-4">
+
+                                <label class="form-label fw-semibold">
+
+                                    Contrast
+
+                                </label>
+
+                                <input type="range"
+                                       class="form-range"
+                                       min="1"
+                                       max="3"
+                                       step="0.1"
+                                       value="1"
+                                       name="contrast">
+
+                            </div>
+
+                            <!-- Resize -->
+
+                            <div class="row mt-5">
+
+                                <div class="col-md-6 mb-3">
+
+                                    <input type="number"
+                                           class="form-control"
+                                           name="width"
+                                           placeholder="Resize Width">
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+
+                                    <input type="number"
+                                           class="form-control"
+                                           name="height"
+                                           placeholder="Resize Height">
+
+                                </div>
+
+                            </div>
+
+                            <!-- Submit -->
+
+                            <button class="btn btn-dark btn-lg w-100 mt-4">
+
+                                Process Image
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Before vs After -->
+    <!-- ========================= -->
+
+    {% if processed_image %}
+
+    <div class="container my-5">
+
+        <div class="card shadow-lg main-card p-4">
+
+            <h2 class="text-center fw-bold mb-5">
+
+                Before vs After
+
+            </h2>
+
+            <div class="row g-4">
+
+                <!-- Original -->
+
+                <div class="col-lg-6">
+
+                    <h4 class="text-center mb-3">
+
+                        Original Image
+
+                    </h4>
+
+                    <img src="{{ original_image }}"
+     class="comparison-img"
+     alt="Original Image">
+
+                </div>
+
+                <!-- Processed -->
+
+                <div class="col-lg-6">
+
+                    <h4 class="text-center mb-3">
+
+                        Processed Image
+
+                    </h4>
+
+                    <img src="/{{ processed_image }}"
+                         class="comparison-img"
+                         alt="Processed Image">
+
+                </div>
+
+            </div>
+
+            <div class="text-center mt-5">
+
+                <a href="/{{ processed_image }}"
+                   download
+                   class="btn btn-success btn-lg px-5">
+
+                    Download Image
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+    <!-- ========================= -->
+    <!-- Features -->
+    <!-- ========================= -->
+
+    <section class="features-section">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="fw-bold">
+
+                    Powerful AI Features
+
+                </h2>
+
+                <p class="text-muted">
+
+                    Professional image editing powered by AI
+
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+
+                            🎨
+
+                        </div>
+
+                        <h4>
+
+                            AI Filters
+
+                        </h4>
+
+                        <p>
+
+                            Cartoon, Sketch, HDR and artistic filters.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+
+                            ✂️
+
+                        </div>
+
+                        <h4>
+
+                            Background Removal
+
+                        </h4>
+
+                        <p>
+
+                            Remove or replace backgrounds instantly using AI.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+
+                            ⚡
+
+                        </div>
+
+                        <h4>
+
+                            Fast Processing
+
+                        </h4>
+
+                        <p>
+
+                            Professional image editing with fast performance.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer class="bg-dark text-white py-4 mt-5">
+
+        <div class="container text-center">
+
+            <p class="mb-0">
+
+                © 2026 AI Image Editor Pro
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- ========================= -->
+    <!-- JavaScript -->
+    <!-- ========================= -->
+
+    <script>
+
+        // Main Preview
+
+        const fileInput =
+            document.getElementById(
+                "formFile"
+            );
+
+        const preview =
+            document.getElementById(
+                "preview"
+            );
+
+        fileInput.addEventListener(
+            "change",
+            function(event){
+
+                const file =
+                    event.target.files[0];
+
+                if(file){
+
+                    preview.src =
+                        URL.createObjectURL(file);
+
+                    preview.style.display =
+                        "block";
+
+                }
+
+            }
+        );
+
+        // Background Preview
+
+        const bgInput =
+            document.getElementById(
+                "bgPreviewInput"
+            );
+
+        const bgPreview =
+            document.getElementById(
+                "bgpreview"
+            );
+
+        bgInput.addEventListener(
+            "change",
+            function(event){
+
+                const file =
+                    event.target.files[0];
+
+                if(file){
+
+                    bgPreview.src =
+                        URL.createObjectURL(file);
+
+                    bgPreview.style.display =
+                        "block";
+
+                }
+
+            }
+        );
+
+    </script>
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
